@@ -1,0 +1,30 @@
+{
+  "name": "grabber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
+    "iconv-lite": "^0.4.19",
+    "node-vkapi": "^2.1.0",
+    "request-promise": "^4.2.1",
+    "ssl-root-cas": "^1.2.4",
+    "vk-io": "^3.2.0",
+    "vksdk": "^5.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Cuwor/grabber.git"
+  },
+  "author": "Cuwor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cuwor/grabber/issues"
+  },
+  "homepage": "https://github.com/Cuwor/grabber#readme"
+}
