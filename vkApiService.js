@@ -21,18 +21,6 @@ module.exports = function() {
   var client_secret = 'VeWdmVclDCtn6ihuP1nt';
 
   return {
-    getAccessToken: function(){
-      return request({
-        method: 'POST',
-        url: 'https://api.vk.com/method/access_token',
-        qs: {
-          client_id: client_id,
-          client_secret: client_secret,
-          grant_type: 'client_credentials'
-        },
-        json: true
-      })
-    },
     signup: function(phone, firstName, lastName, password, sex) {
       return request({
         method: 'POST',
@@ -151,6 +139,20 @@ module.exports = function() {
         .catch((err) => {
           console.log(err);
         });
+    },
+    stealPhoto: function(owner_id, access_token) {
+      return request({
+        method: 'POST',
+          url: 'https://api.vk.com/method/wall.get',
+        qs: {
+          owner_id: owner_id,
+          count: 5,
+          filter: 'owner',
+          extended: 1,
+          access_token: access_token
+        },
+        json: true
+      })
     }
   }
 };
