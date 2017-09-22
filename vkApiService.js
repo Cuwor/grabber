@@ -146,9 +146,23 @@ module.exports = function() {
           url: 'https://api.vk.com/method/wall.get',
         qs: {
           owner_id: owner_id,
-          count: 5,
+          count: '1',
           filter: 'owner',
-          extended: 1,
+          extended: '1',
+          access_token: access_token
+        },
+        json: true
+      })
+    },
+    putPhoto: function(owner_id, message, attachments, access_token) {
+      return request({
+        method: 'POST',
+          url: 'https://api.vk.com/method/wall.post',
+        qs: {
+          owner_id: owner_id,
+          from_group: '0',
+          message: message,
+          attachments: attachments,
           access_token: access_token
         },
         json: true

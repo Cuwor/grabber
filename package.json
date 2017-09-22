@@ -1,13 +1,15 @@
 {
   "name": "grabber",
   "version": "1.0.0",
-  "description": "",
+  "description": "Stealer",
   "main": "app.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "fs": "0.0.1-security",
     "iconv-lite": "^0.4.19",
     "node-vkapi": "^2.1.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
     "request-promise": "^4.2.1",
     "ssl-root-cas": "^1.2.4",
     "vk-io": "^3.2.0",
