@@ -41,7 +41,7 @@ module.exports = function() {
           url: 'https://api.vk.com/method/wall.get',
         qs: {
           owner_id: owner_id,
-          count: '1',
+          count: '2',
           filter: 'owner',
           extended: '1',
           access_token: access_token
