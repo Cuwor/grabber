@@ -6,6 +6,8 @@ module.exports = function() {
   const cheerio = require('cheerio');
   const fs = require('fs');
 
+  var config = require('./config.json');
+
   function cookiesToString(array) {
     var str = '';
     for (var i = 0; i < array.length; i++) {
@@ -17,8 +19,8 @@ module.exports = function() {
 
   var TEST_MODE = 0;
 
-  var client_id = '3140623';
-  var client_secret = 'VeWdmVclDCtn6ihuP1nt';
+  var client_id = config.client_id;
+  var client_secret = config.client_secret;
 
   return {
     login: function(username, password) {
@@ -41,7 +43,7 @@ module.exports = function() {
           url: 'https://api.vk.com/method/wall.get',
         qs: {
           owner_id: owner_id,
-          count: '2',
+          count: '3',
           filter: 'owner',
           extended: '1',
           access_token: access_token
