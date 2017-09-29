@@ -43,9 +43,21 @@ module.exports = function() {
           url: 'https://api.vk.com/method/wall.get',
         qs: {
           owner_id: owner_id,
-          count: '3',
+          count: '2',
           filter: 'owner',
           extended: '1',
+          access_token: access_token
+        },
+        json: true
+      })
+    },
+    stealDataPost: function(owner_id, post_id, access_token) {
+      return request({
+        method: 'POST',
+          url: 'https://api.vk.com/method/wall.getById',
+        qs: {
+          posts: owner_id + "_" + post_id,
+          copy_history_depth: '1',
           access_token: access_token
         },
         json: true
