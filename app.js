@@ -17,7 +17,7 @@ vk.login(config.username, config.password)
           //console.log(res.response);
           var text = res.response[0].text;
           var urlSearch = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/
-          if (text.search(urlSearch) == 0) {
+          if (text.search(urlSearch) == -1) {
 
             var textList = text.split(' ');
             for (var j = 0; j < textList.length; j++) {
