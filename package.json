@@ -5,14 +5,15 @@
   "main": "app.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
     "fs": "0.0.1-security",
     "iconv-lite": "^0.4.19",
     "node-vkapi": "^2.1.0",
-    "pg": "^7.3.0",
-    "pg-hstore": "^2.3.2",
     "request-promise": "^4.2.2",
-    "sequelize": "^4.12.0",
+    "sequelize": "^4.13.0",
     "sequelize-cli": "^3.0.0",
+    "sqlite3": "^3.1.13",
     "ssl-root-cas": "^1.2.4",
     "vk-io": "^3.2.0",
     "vksdk": "^5.3.2"

@@ -1,6 +1,6 @@
 'use strict';
 var vk = require('./vkApiService.js')();
-var config = require('./config.json');
+var config = require('./config/config.json');
 
 vk.login(config.username, config.password)
   .then(res => {
@@ -57,4 +57,8 @@ vk.login(config.username, config.password)
     },
     error => {
       console.log("Rejected: " + error);
+      if (error.error.error == "need_captcha") {
+        console.log(error.error.captcha_sid);
+
+      }
     })

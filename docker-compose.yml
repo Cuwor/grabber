@@ -1,6 +1,0 @@
-version: '2'
-services:
-  postgres:
-    image: postgres:9.6.2
-    ports:
-      - 5432:5432
