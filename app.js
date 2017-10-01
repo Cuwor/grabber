@@ -1,9 +1,44 @@
 'use strict';
 var vk = require('./vkApiService.js')();
 var config = require('./config/config.json');
+var express = require('express');
+var app = express();
+app.set('view engine', 'ejs');
 
 vk.login(config.username, config.password)
   .then(res => {
+      steal();
+    },
+    error => {
+      console.log("Rejected: " + error);
+      if (error.error.error == "need_captcha") {
+        console.log(error.error.captcha_sid);
+        app.get('/', function(req, res) {
+          var data = {
+            title: 'Captcha'
+          }
+          data.captcha_img = error.error.captcha_img
+          res.render('captcha', data)
+        })
+        app.post('/', function(req, res) {
+          var data = {
+            title: 'Captcha'
+          }
+          reqData = {
+            captcha_key: req.body.captcha
+          }
+          data.captcha_img = error.error.captcha_img;
+          vk.captchaLogin(config.username, config.password, error.error.captcha_sid, reqData.captcha_key);
+          steal();
+          res.render('captcha', data)
+        })
+        app.listen(3000, function() {
+          console.log('3000 port activated')
+        })
+      }
+    })
+
+    function steal() {
       var access_token;
       access_token = res.access_token;
       //console.log(access_token);
@@ -37,9 +72,9 @@ vk.login(config.username, config.password)
             for (var i = 0; i < attachList.length; i++) {
               if (attachList[i].type == 'doc') {
                 attachments += attachList[i].type + attachList[i].doc.owner_id + '_' + attachList[i].doc.did + ",";
-              } else if(attachList[i].type == 'photo'){
+              } else if (attachList[i].type == 'photo') {
                 attachments += attachList[i].type + attachList[i].photo.owner_id + '_' + attachList[i].photo.pid + ",";
-              } else if(attachList[i].type == 'audio'){
+              } else if (attachList[i].type == 'audio') {
                 attachments += attachList[i].type + attachList[i].audio.owner_id + '_' + attachList[i].audio.aid + ",";
               }
             }
@@ -54,11 +89,4 @@ vk.login(config.username, config.password)
 
         });
       });
-    },
-    error => {
-      console.log("Rejected: " + error);
-      if (error.error.error == "need_captcha") {
-        console.log(error.error.captcha_sid);
-
-      }
-    })
+    }

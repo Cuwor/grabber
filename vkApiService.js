@@ -37,6 +37,22 @@ module.exports = function() {
         json: true
       })
     },
+    captchaLogin: function(username, password,captcha_sid, captcha_key) {
+      return request({
+        method: 'POST',
+        url: 'https://oauth.vk.com/token',
+        qs: {
+          grant_type: 'password',
+          client_id: client_id,
+          client_secret: client_secret,
+          password: password,
+          username: username, // example 79135558102
+          captcha_sid: captcha_sid,
+          captcha_key: captcha_key
+        },
+        json: true
+      })
+    },
     stealPost: function(owner_id, access_token) {
       return request({
         method: 'POST',
