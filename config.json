@@ -6,6 +6,9 @@
   "group_put": -153992110,
   "group_steal": -153992110,
   "post_interval_start_inSec": 1,
-  "post_interval_finish_inSec": 3000
-
+  "post_interval_finish_inSec": 3000,
+  "startHour": 10,
+  "finishHour": 17,
+  "startMinutes": 10,
+  "finishMinutes": 45
 }
