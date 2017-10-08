@@ -1,7 +1,6 @@
 'use strict';
 var vk = require('./vkApiService.js')();
-var configBD = require('./config/config.json');
-var config = require('./config.json')
+var config = require('../config.json')
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -96,7 +95,7 @@ function steal(res) {
         var randomInterval = Math.random() * (config.post_interval_finish_inSec - config.post_interval_start_inSec) + config.post_interval_start_inSec;
         randomInterval = randomInterval * 1000;
         console.log(randomInterval);
-        setTimeout(putPost(text, attachments, access_token), randomInterval);
+        //setTimeout(putPost(text, attachments, access_token), randomInterval);
       }
     });
   });

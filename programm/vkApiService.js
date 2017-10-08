@@ -6,7 +6,7 @@ module.exports = function() {
   const cheerio = require('cheerio');
   const fs = require('fs');
 
-  var config = require('./config.json');
+  var config = require('../config.json');
 
   function cookiesToString(array) {
     var str = '';
