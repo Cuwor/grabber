@@ -5,8 +5,8 @@
   "client_secret": "VeWdmVclDCtn6ihuP1nt",
   "group_put": -153992110,
   "group_steal": -153992110,
-  "post_interval_start_inSec": 10,
-  "post_interval_finish_inSec": 20,
+  "post_interval_start_inSec": 5,
+  "post_interval_finish_inSec": 10,
   "work_interval":[
     "15:00-16:50"
   ]

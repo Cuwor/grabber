@@ -16,6 +16,7 @@ var date = new Date();
 var current_hour = date.getHours();
 var current_min = date.getMinutes();
 var current_time = current_hour * 3600 + current_min * 60;
+var last_post_id = 5;
 
 
 
@@ -69,8 +70,9 @@ function steal(res) {
       //console.log(res.response);
       var text = res.response[0].text;
       var urlSearch = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/
-      if (text.search(urlSearch) == -1) {
-
+      if (text.search(urlSearch) == -1 && last_post_id != post_id) {
+        last_post_id = post_id;
+        console.log(last_post_id);
         var textList = text.split(' ');
         for (var j = 0; j < textList.length; j++) {
           var tag = textList[j].match(/#/ig);
@@ -95,7 +97,9 @@ function steal(res) {
         var randomInterval = Math.random() * (config.post_interval_finish_inSec - config.post_interval_start_inSec) + config.post_interval_start_inSec;
         randomInterval = randomInterval * 1000;
         console.log(randomInterval);
-        //setTimeout(putPost(text, attachments, access_token), randomInterval);
+        setTimeout(putPost(text, attachments, access_token), randomInterval);
+      } else {
+        console.log('Данный id уже использован или содержит url');
       }
     });
   });
