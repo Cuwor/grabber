@@ -4,7 +4,7 @@
   "client_id": "3140623",
   "client_secret": "VeWdmVclDCtn6ihuP1nt",
   "group_put": -153992110,
-  "group_steal": -153992110,
+  "group_steal": -155518045,
   "post_interval_start_inSec": 5,
   "post_interval_finish_inSec": 10,
   "work_interval":[
